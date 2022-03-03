@@ -4,7 +4,8 @@ class ListNode:
         self.next = next
         self.prev = prev
 
-class LinekedList:
+#Deque is a Doubly Linked List
+class Deque:
     __head = None
     __last = None
     def __init__(self):
@@ -38,6 +39,21 @@ class LinekedList:
         if self.__head.next != self.__last:
             self.__head.next.next.prev = self.__head
             self.__head.next = self.__head.next.next
+    
+    def get_front(self):
+        if self.__head.next != self.__last:
+            return self.__head.next.data
+        else:
+            return None
+    
+    def get_back(self):
+        if self.__last.prev != self.__head:
+            return self.__last.prev.data
+        else:
+            return None
+
+    def empty(self):
+        return self.__head.next == self.__last
 
     def printList(self):
         temp = self.__head.next
@@ -45,9 +61,18 @@ class LinekedList:
             print(temp.data)
             temp = temp.next
 
-L = LinekedList()
-L.push_back(3) #O(1)
-L.push_back(4) #O(1)
-L.push_front(2) #O(1)
-L.pop_front() #O(1)
-L.printList()
+dq = Deque()
+dq.push_back(3) #O(1)
+dq.push_back(4) #O(1)
+dq.push_front(2) #O(1)
+dq.printList()
+dq.pop_back()
+dq.printList()
+dq.pop_front()
+dq.printList()
+print(dq.get_front())
+print(dq.get_back())
+print(dq.empty())
+dq.pop_back()
+print(dq.empty())
+print(dq.get_back())
