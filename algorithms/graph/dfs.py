@@ -8,7 +8,7 @@ class Graph:
         self.adjanceny_list[a].append(b)
         self.adjanceny_list[b].append(a)
     
-    def add_edge_un(self, a, b):
+    def add_edge_dir(self, a, b):
         self.adjanceny_list[a].append(b)
 
     def dfs(self, v=0):
