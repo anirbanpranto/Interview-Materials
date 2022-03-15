@@ -14,7 +14,8 @@ class Solution(object):
             t[i] = t[i-1] + t[i-2] + t[i-3]
         return t[n]
 
-    memo = {}
+    def __init__(self):
+        self.memo = {}
     def tribonacci(self, n):
         if n == 0:
             return 0

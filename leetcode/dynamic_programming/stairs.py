@@ -1,5 +1,6 @@
 class Solution:
-    memo = {}
+    def __init__(self):
+        self.memo = {}
     def climbStairs_recurr(self, n):
         if n == 0:
             return 1

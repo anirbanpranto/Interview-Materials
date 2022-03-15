@@ -1,5 +1,6 @@
 class Solution(object):
-    memo = {}
+    def __init__(self) -> None:
+        self.memo = {}
     def fib(self, n):
         if n == 0:
             return 0
