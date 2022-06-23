@@ -1,5 +1,5 @@
 class Node:
-    pass
+    pass  
 
 class Priority_Queue:
     def __init__():
