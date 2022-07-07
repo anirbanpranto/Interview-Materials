@@ -17,3 +17,6 @@ class Solution(object):
                 matrix[i][j] = 0
 
         return matrix
+
+#O(m*n) time complexity
+#O(n) space complexity
