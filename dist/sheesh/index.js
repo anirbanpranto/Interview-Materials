@@ -170,7 +170,7 @@ Time taken (async): 31.436866998672485
 280000
 */
 //10 requests, 1000000 objects
-//200 MS slower when using async await, not the worst thing ever tbh, but much easier to code and reason about
+//200 ms slower when using async await, not the worst thing ever tbh, but much easier to code and reason about
 /*
 Time taken (EventEmitter):  3590.369550049305
 Time taken (EventEmitter):  3593.759325027466
@@ -195,5 +195,10 @@ Time taken (async): 2598.6712770462036
 Time taken (async): 2930.196160018444
 Time taken (async): 3265.7238780260086
 Time taken (async): 3735.4031580090523
+56000000
+*/
+//using Promise.all(Promise<T>[]) was the fastest, it beat the best eventemitter performance by 40 ms
+/*
+Time taken (async): 3552.8345170021057
 56000000
 */ 
