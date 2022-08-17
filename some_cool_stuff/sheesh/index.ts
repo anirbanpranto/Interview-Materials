@@ -11,7 +11,7 @@ type giga_chad = {
     notify: events.EventEmitter
 }
 
-const random_id = async (i) => {
+const random_id = async (i: number) => {
     return "abcd" + i + Math.floor(Math.random() * 100000);
 }
 
@@ -30,7 +30,7 @@ const do_it_fast = (tot: number, payload: number) => {
 
     const database_op = async (me: giga_chad, source: string) => {
         for (let i = 0; i < payload; i++) {
-            const _id = random_id(await random_id(i));
+            const _id = await random_id(i);
             me.sigma_list.push({
                 "agenda": "based and redpilled",
                 _id: _id
@@ -61,7 +61,7 @@ const do_async = async (payload: number) => {
         return new Promise(async (resolve, reject) => {
             const list: any[] = []
             for (let i = 0; i < payload; i++) {
-                const _id = random_id(await random_id(i));
+                const _id = await random_id(i);
                 list.push({
                     "agenda": "based and redpilled",
                     _id: _id
@@ -112,7 +112,7 @@ const do_async_all = async (payload: number) => {
         return new Promise(async (resolve, reject) => {
             const list: any[] = []
             for (let i = 0; i < payload; i++) {
-                const _id = random_id(await random_id(i));
+                const _id = await random_id(i);
                 list.push({
                     "agenda": "based and redpilled",
                     _id: _id
