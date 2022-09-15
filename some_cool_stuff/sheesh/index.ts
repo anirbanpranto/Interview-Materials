@@ -7,151 +7,151 @@ import sizeof from 'object-sizeof'
 const start = performance.performance.now();
 
 type giga_chad = {
-    sigma_list: any[],
-    notify: events.EventEmitter
+  sigma_list: any[],
+  notify: events.EventEmitter
 }
 
 const random_id = async (i: number) => {
-    return "abcd" + i + Math.floor(Math.random() * 100000);
+  return "abcd" + i + Math.floor(Math.random() * 100000);
 }
 
 const do_it_fast = (tot: number, payload: number) => {
-    const me: giga_chad = {
-        sigma_list: [],
-        notify: new events.EventEmitter()
-    };
-    //call back for event "done"
-    const done = (start: number) => {
-        console.log("Time taken (EventEmitter): ", performance.performance.now() - start);
-        if (me.sigma_list.length === payload * tot) {
-            data_listener(me.sigma_list);
-        }
+  const me: giga_chad = {
+    sigma_list: [],
+    notify: new events.EventEmitter()
+  };
+  //call back for event "done"
+  const done = (start: number) => {
+    console.log("Time taken (EventEmitter): ", performance.performance.now() - start);
+    if (me.sigma_list.length === payload * tot) {
+      data_listener(me.sigma_list);
     }
+  }
 
-    const database_op = async (me: giga_chad, source: string) => {
-        for (let i = 0; i < payload; i++) {
-            const _id = await random_id(i);
-            me.sigma_list.push({
-                "agenda": "based and redpilled",
-                _id: _id
-            });
-            if (i === payload - 1) {
-                me.notify.emit("done", start);
-            }
-        }
+  const database_op = async (me: giga_chad, source: string) => {
+    for (let i = 0; i < payload; i++) {
+      const _id = await random_id(i);
+      me.sigma_list.push({
+        "agenda": "based and redpilled",
+        _id: _id
+      });
+      if (i === payload - 1) {
+        me.notify.emit("done", start);
+      }
     }
+  }
 
-    const test = () => {
-        //bind the callback
-        me.notify.on("done", done);
-        //create an observer for the object
-        for (let i = 0; i < tot; i++) {
-            database_op(me, "event");
-        }
+  const test = () => {
+    //bind the callback
+    me.notify.on("done", done);
+    //create an observer for the object
+    for (let i = 0; i < tot; i++) {
+      database_op(me, "event");
     }
-    test();
+  }
+  test();
 }
 
 const do_async = async (payload: number) => {
-    const me_sigma: giga_chad = {
-        sigma_list: [],
-        notify: new events.EventEmitter()
-    }
-    const database_promise = async (me: giga_chad, source: string): Promise<void> => {
-        return new Promise(async (resolve, reject) => {
-            const list: any[] = []
-            for (let i = 0; i < payload; i++) {
-                const _id = await random_id(i);
-                list.push({
-                    "agenda": "based and redpilled",
-                    _id: _id
-                });
-                if (list.length === payload) {
-                    me.sigma_list = me.sigma_list.concat(list);
-                    resolve();
-                }
-            }
+  const me_sigma: giga_chad = {
+    sigma_list: [],
+    notify: new events.EventEmitter()
+  }
+  const database_promise = async (me: giga_chad, source: string): Promise<void> => {
+    return new Promise(async (resolve, reject) => {
+      const list: any[] = []
+      for (let i = 0; i < payload; i++) {
+        const _id = await random_id(i);
+        list.push({
+          "agenda": "based and redpilled",
+          _id: _id
         });
-    }
+        if (list.length === payload) {
+          me.sigma_list = me.sigma_list.concat(list);
+          resolve();
+        }
+      }
+    });
+  }
 
-    const test_async = async () => {
-        //call wait - twice
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        await database_promise(me_sigma, "async");
-        console.log("Time taken (async):", performance.performance.now() - start);
-        return me_sigma.sigma_list;
-    }
+  const test_async = async () => {
+    //call wait - twice
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    await database_promise(me_sigma, "async");
+    console.log("Time taken (async):", performance.performance.now() - start);
+    return me_sigma.sigma_list;
+  }
 
-    const data = await test_async();
-    return data;
+  const data = await test_async();
+  return data;
 }
 
 const do_async_all = async (payload: number) => {
-    const me_sigma: giga_chad = {
-        sigma_list: [],
-        notify: new events.EventEmitter()
-    }
-    const database_promise = async (me: giga_chad, source: string): Promise<void> => {
-        return new Promise(async (resolve, reject) => {
-            const list: any[] = []
-            for (let i = 0; i < payload; i++) {
-                const _id = await random_id(i);
-                list.push({
-                    "agenda": "based and redpilled",
-                    _id: _id
-                });
-                if (list.length === payload) {
-                    me.sigma_list = me.sigma_list.concat(list);
-                    resolve();
-                }
-            }
+  const me_sigma: giga_chad = {
+    sigma_list: [],
+    notify: new events.EventEmitter()
+  }
+  const database_promise = async (me: giga_chad, source: string): Promise<void> => {
+    return new Promise(async (resolve, reject) => {
+      const list: any[] = []
+      for (let i = 0; i < payload; i++) {
+        const _id = await random_id(i);
+        list.push({
+          "agenda": "based and redpilled",
+          _id: _id
         });
-    }
+        if (list.length === payload) {
+          me.sigma_list = me.sigma_list.concat(list);
+          resolve();
+        }
+      }
+    });
+  }
 
-    const test_async = async () => {
-        //call wait - twice
-        const a = database_promise(me_sigma, "async");
-        const b = database_promise(me_sigma, "async");
-        const c = database_promise(me_sigma, "async");
-        const d = database_promise(me_sigma, "async");
-        const e = database_promise(me_sigma, "async");
-        const f = database_promise(me_sigma, "async");
-        const g = database_promise(me_sigma, "async");
-        const h = database_promise(me_sigma, "async");
-        const i = database_promise(me_sigma, "async");
-        const j = database_promise(me_sigma, "async");
-        await Promise.all([a, b, c, d, e, f, g, h, i, j]);
-        console.log("Time taken (async):", performance.performance.now() - start);
-        return me_sigma.sigma_list;
-    }
+  const test_async = async () => {
+    //call wait - twice
+    const a = database_promise(me_sigma, "async");
+    const b = database_promise(me_sigma, "async");
+    const c = database_promise(me_sigma, "async");
+    const d = database_promise(me_sigma, "async");
+    const e = database_promise(me_sigma, "async");
+    const f = database_promise(me_sigma, "async");
+    const g = database_promise(me_sigma, "async");
+    const h = database_promise(me_sigma, "async");
+    const i = database_promise(me_sigma, "async");
+    const j = database_promise(me_sigma, "async");
+    await Promise.all([a, b, c, d, e, f, g, h, i, j]);
+    console.log("Time taken (async):", performance.performance.now() - start);
+    return me_sigma.sigma_list;
+  }
 
-    const data = await test_async();
-    return data;
+  const data = await test_async();
+  return data;
 }
 
 const data_listener = (data) => {
-    console.log(sizeof(data))
+  console.log(sizeof(data))
 }
 
 do_async_all(100000).then(async data => {
-    console.log(sizeof(data))
+  console.log(sizeof(data))
 });
 
 //do_it_fast(10, 100000);
