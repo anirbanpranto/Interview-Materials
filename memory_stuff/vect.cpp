@@ -2,6 +2,7 @@
 #include<memory.h>
 #include<chrono>
 #include<cmath>
+#include<vector>
 
 template<typename T>
 class vec{
@@ -36,8 +37,9 @@ class vec{
         this->curr_idx++;
       }
     }
-
-    T get(int idx){
+    
+    int& operator[](int idx) {
+      if(idx > (int)this->curr_idx) exit(0);
       return this->arr[idx];
     }
 
@@ -60,14 +62,24 @@ class vec{
 };
 
 int main(int argc, char **argv){
-  vec<int> v;
+  vec<char> v;
   int n = 1000000;
   auto start = std::chrono::system_clock::now();
   for(int i = 0; i < n; i++){
-    v.push_back(i); 
+    v.push_back('m'); 
   }
   auto end = std::chrono::system_clock::now();
   std::chrono::duration<double> d = end - start;
-  std::cout<<"Execution Time : "<<d.count()<<" seconds"<<std::endl; 
+  std::cout<<"Execution Time : "<<d.count()<<" seconds"<<std::endl;
+
+  std::vector<char> v_2;
+  auto start_2 = std::chrono::system_clock::now();
+  for(int i = 0; i < n; i++){
+    v_2.push_back('m'); 
+  }
+  auto end_2 = std::chrono::system_clock::now();
+  std::chrono::duration<double> d_2 = end_2 - start_2;
+  std::cout<<"Execution Time : "<<d_2.count()<<" seconds"<<std::endl; 
+
   return 0;
 }
