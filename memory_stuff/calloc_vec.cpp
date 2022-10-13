@@ -12,7 +12,6 @@ class vec{
     size_t curr_idx;
     vec(size_t size){
       this->size = pow(2,log2(size));
-      std::cout<<this->size<<std::endl;
       this->curr_idx = 0;
       arr = (T*)calloc(this->size, sizeof(T));
     }
@@ -56,7 +55,7 @@ class vec{
 };
 
 int main(int argc, char **argv){
-  vec<int> v(10);
+  vec<int> v;
   int n = 1000000;
   auto start = std::chrono::system_clock::now();
   for(int i = 0; i < n; i++){

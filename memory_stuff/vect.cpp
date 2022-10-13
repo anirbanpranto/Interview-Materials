@@ -26,7 +26,6 @@ class vec{
         this->size*=16;
         T *temp = new T[this->size];
         memcpy(temp, arr, sizeof(T)*(this->size/16));
-        std::cout<<std::endl;
         delete []arr;
         this->arr = temp;
         this->arr[this->curr_idx] = data;
@@ -61,7 +60,7 @@ class vec{
 };
 
 int main(int argc, char **argv){
-  vec<int> v(10);
+  vec<int> v;
   int n = 1000000;
   auto start = std::chrono::system_clock::now();
   for(int i = 0; i < n; i++){
