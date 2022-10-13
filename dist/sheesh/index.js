@@ -33,7 +33,7 @@ const do_it_fast = (tot, payload) => {
     };
     const database_op = (me, source) => __awaiter(void 0, void 0, void 0, function* () {
         for (let i = 0; i < payload; i++) {
-            const _id = random_id(yield random_id(i));
+            const _id = yield random_id(i);
             me.sigma_list.push({
                 "agenda": "based and redpilled",
                 _id: _id
@@ -62,7 +62,7 @@ const do_async = (payload) => __awaiter(void 0, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(void 0, void 0, void 0, function* () {
             const list = [];
             for (let i = 0; i < payload; i++) {
-                const _id = random_id(yield random_id(i));
+                const _id = yield random_id(i);
                 list.push({
                     "agenda": "based and redpilled",
                     _id: _id
@@ -110,7 +110,7 @@ const do_async_all = (payload) => __awaiter(void 0, void 0, void 0, function* ()
         return new Promise((resolve, reject) => __awaiter(void 0, void 0, void 0, function* () {
             const list = [];
             for (let i = 0; i < payload; i++) {
-                const _id = random_id(yield random_id(i));
+                const _id = yield random_id(i);
                 list.push({
                     "agenda": "based and redpilled",
                     _id: _id
@@ -201,4 +201,4 @@ Time taken (async): 3735.4031580090523
 /*
 Time taken (async): 3552.8345170021057
 56000000
-*/ 
+*/

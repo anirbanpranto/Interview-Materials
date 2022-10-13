@@ -57,3 +57,4 @@ const strategy_test = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log("Time taken : ", perf_hooks_1.performance.now() - start);
 });
 strategy_test();
+singleton_test();
